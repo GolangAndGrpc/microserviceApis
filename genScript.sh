@@ -16,7 +16,7 @@ go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 echo "Compiler and dependency istalled successfully ...."
 
 ls -al $(go env GOPATH)/bin
-echo "Current PATH: $PATH
+echo "Current PATH: $PATH"
 chmod +x $(go env GOPATH)/bin/protoc-gen-go
 chmod +x $(go env GOPATH)/bin/protoc-gen-go-grpc
 go version
