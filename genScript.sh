@@ -32,6 +32,7 @@ protoc --go_out=./golang \
   --go-grpc_opt=paths=source_relative \
   protos/${SERVICE_NAME}/*.proto
 
+ls -lrt
 cd golang/order/
 ls -lrt
 
