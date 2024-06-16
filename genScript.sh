@@ -21,6 +21,8 @@ echo "${GITHUB_PATH}"
 
 rm -rf golang
 mkdir golang
+cd golang || exit
+mkdir "${SERVICE_NAME}"
 
 #Generate proto code command
 protoc --go_out=./golang \
