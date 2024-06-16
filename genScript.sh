@@ -23,6 +23,7 @@ rm -rf golang
 mkdir golang
 cd golang || exit
 mkdir "${SERVICE_NAME}"
+cd ..
 
 #Generate proto code command
 protoc --go_out=./golang \
