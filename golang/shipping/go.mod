@@ -1,4 +1,4 @@
-module github.com/GolangAndGrpc/microserviceApis/golang/order
+module github.com/GolangAndGrpc/microserviceApis/golang/shipping
 
 go 1.21.11
 

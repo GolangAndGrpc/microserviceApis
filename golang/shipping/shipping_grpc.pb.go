@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.4.0
 // - protoc             v3.12.4
-// source: order/order.proto
+// source: shipping/shipping.proto
 
-package order
+package shipping
 
 import (
 	context "context"
@@ -106,5 +106,5 @@ var Order_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "order/order.proto",
+	Metadata: "shipping/shipping.proto",
 }
