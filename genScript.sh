@@ -32,6 +32,9 @@ protoc --go_out=./golang \
   --go-grpc_opt=paths=source_relative \
   protos/${SERVICE_NAME}/*.proto
 
+cd golang/order/
+ls -lrt
+
 # Create sub package inside repo
 cd golang/${SERVICE_NAME} || exit
 go mod init github.com/GolangAndGrpc/microserviceApis/${SERVICE_NAME} || true
