@@ -11,7 +11,7 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                service: ["order", "payment", "shipping"]
+                service: ["order"]
         steps:
             - name: Checkout repository
               uses: actions/checkout@v3

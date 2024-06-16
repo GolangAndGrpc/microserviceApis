@@ -22,7 +22,7 @@ protoc --go_out=./golang \
   --go_opt=paths=source_relative \
   --go-grpc_out=./golang \
   --go-grpc_opt=paths=source_relative \
-  ./${SERVICE_NAME}/*.proto
+  protos/${SERVICE_NAME}/*.proto
 
 # Create sub package inside repo
 cd golang/${SERVICE_NAME} || exit
