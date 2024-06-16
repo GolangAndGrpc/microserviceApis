@@ -25,7 +25,9 @@ mkdir "${SERVICE_NAME}"
 cd ..
 
 #Generate proto code command
-protoc --go_out=./golang \
+protoc \
+  --proto_path=protos \
+  --go_out=./golang \
   --go_opt=paths=source_relative \
   --go-grpc_out=./golang \
   --go-grpc_opt=paths=source_relative \
