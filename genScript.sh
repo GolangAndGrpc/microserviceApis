@@ -17,12 +17,8 @@ echo "Compiler and dependency istalled successfully ...."
 
 ls -al $(go env GOPATH)/bin
 echo "$PATH:$(go env GOPATH)/bin" >> $GITHUB_PATH
-echo "Current PATH: $PATH"
 chmod +x $(go env GOPATH)/bin/protoc-gen-go
 chmod +x $(go env GOPATH)/bin/protoc-gen-go-grpc
-go version
-echo "$(go env GOPATH)/bin"
-echo "$(go env GOPATH)/bin" >>$GITHUB_PATH
 echo "${GITHUB_PATH}"
 
 which protoc-gen-go
@@ -48,10 +44,3 @@ echo "Service name ${SERVICE_NAME}"
 go mod tidy
 cd ../../
 
-# Commit the go.mod and go.sum created
-git add . && git commit -am "proto update" || true
-git push origin HEAD:main
-
-git tag -fa golang/${SERVICE_NAME}/${RELEASE_VERSION} \
-  -m "golang/${SERVICE_NAME}/${RELEASE_VERSION}"
-git push origin refs/tags/golang/${SERVICE_NAME}/${RELEASE_VERSION}
