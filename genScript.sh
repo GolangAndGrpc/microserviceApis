@@ -18,12 +18,6 @@ echo "Compiler and dependency istalled successfully ...."
 ls -al $(go env GOPATH)/bin
 export PATH="$PATH:$(go env GOPATH)/bin"
 echo "$PATH:$(go env GOPATH)/bin" >> $GITHUB_PATH
-chmod +x $(go env GOPATH)/bin/protoc-gen-go
-chmod +x $(go env GOPATH)/bin/protoc-gen-go-grpc
-echo "${GITHUB_PATH}"
-
-which protoc-gen-go
-which protoc-gen-go-grpc
 
 rm -rf golang
 mkdir golang
