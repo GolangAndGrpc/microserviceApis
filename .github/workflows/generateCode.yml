@@ -29,3 +29,13 @@ jobs:
                   chmod +x "${GITHUB_WORKSPACE}/genScript.sh"
                   ls -alh ${GITHUB_WORKSPACE}
                   ./genScript.sh ${{ matrix.service }} ${{ env.RELEASE_VERSION }} ${{ github.actor }} ${{ github.actor }}@users.noreply.github.com
+
+            - name: Commit and push changes
+              run: |
+                  git config user.name "iAmGreatt"
+                  git config user.email "greatjohncena9@gmail.com"
+                  git add .
+                  git commit -m "Generate protobuf code"
+                  git push origin main  # Adjust branch name as necessary
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
