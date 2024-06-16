@@ -1,0 +1,29 @@
+name: Generate Proto stubs
+run-name: Generating
+
+on:
+    push:
+        tags:
+            - "*"
+
+jobs:
+    generate:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                service: ["order", "payment", "shipping"]
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Etract Release Version
+              run: echo "RELEASE_VERSION=v1.0.0" >> $GITHUB_ENV
+
+            - name: Running Shell Script
+              shell: bash
+              run: |
+                  chmod +x "${GITHUB_WORKSPACE}/genScript.sh"
+                  ls -alh ${GITHUB_WORKSPACE}
+                  ./genScript.sh ${{ matrix.service }} ${{ env.RELEASE_VERSION }} ${{ github.actor }} ${{ github.actor }}@users.noreply.github.com
