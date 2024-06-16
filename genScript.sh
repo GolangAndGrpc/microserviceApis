@@ -41,3 +41,15 @@ go mod init github.com/GolangAndGrpc/microserviceApis/golang/${SERVICE_NAME} || 
 echo "Service name ${SERVICE_NAME}"
 go mod tidy
 cd ../../
+
+git config --global user.name "github-actions[bot]"
+git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+# Stage changes
+git add .
+
+# Commit changes
+git commit -m "Automated commit from GitHub Actions"
+
+# Push changes
+git push origin HEAD:main
