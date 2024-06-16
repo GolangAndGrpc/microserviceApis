@@ -15,9 +15,9 @@ go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 echo "Compiler and dependency istalled successfully ...."
 
-echo "$(go env GOPATH)/bin"
-echo "$(go env GOPATH)/bin" >>"$GITHUB_PATH"
-echo "${GITHUB_PATH}"
+ls -al $(go env GOPATH)/bin
+export PATH="$PATH:$(go env GOPATH)/bin"
+echo "$PATH:$(go env GOPATH)/bin" >>$GITHUB_PATH
 
 rm -rf golang
 mkdir golang
@@ -32,21 +32,9 @@ protoc --go_out=./golang \
   --go-grpc_opt=paths=source_relative \
   protos/${SERVICE_NAME}/*.proto
 
-ls -lrt
-cd golang/order/
-ls -lrt
-
 # Create sub package inside repo
 cd golang/${SERVICE_NAME} || exit
 go mod init github.com/GolangAndGrpc/microserviceApis/${SERVICE_NAME} || true
 echo "Service name ${SERVICE_NAME}"
 go mod tidy
 cd ../../
-
-# Commit the go.mod and go.sum created
-git add . && git commit -am "proto update" || true
-git push origin HEAD:main
-
-git tag -fa golang/${SERVICE_NAME}/${RELEASE_VERSION} \
-  -m "golang/${SERVICE_NAME}/${RELEASE_VERSION}"
-git push origin refs/tags/golang/${SERVICE_NAME}/${RELEASE_VERSION}
