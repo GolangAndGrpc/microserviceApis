@@ -34,7 +34,7 @@ protoc --go_out=./golang \
 
 # Create sub package inside repo
 cd golang/${SERVICE_NAME} || exit
-go mod init github.com/GolangAndGrpc/microserviceApis/${SERVICE_NAME} || true
+go mod init github.com/GolangAndGrpc/microserviceApis/golang/${SERVICE_NAME} || true
 echo "Service name ${SERVICE_NAME}"
 go mod tidy
 cd ../../
