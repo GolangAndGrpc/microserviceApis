@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "github.com/GolangAndGrpc/test/golang/shipping";
+option go_package = "github.com/GolangAndGrpc/microserviceApis/golang/shipping";
 
 message CreateOrderRequest {
   int64 user_id = 1;
