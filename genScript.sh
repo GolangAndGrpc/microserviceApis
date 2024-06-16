@@ -15,7 +15,6 @@ go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 echo "Compiler and dependency istalled successfully ...."
 
-ls -al $(go env GOPATH)/bin
 export PATH="$PATH:$(go env GOPATH)/bin"
 echo "$PATH:$(go env GOPATH)/bin" >>$GITHUB_PATH
 
@@ -33,7 +32,8 @@ protoc --go_out=./golang \
   protos/${SERVICE_NAME}/*.proto
 
 ls -lrt
-ls golang/order
+ls golang/
+ls golang/order/
 
 # Create sub package inside repo
 cd golang/${SERVICE_NAME} || exit
