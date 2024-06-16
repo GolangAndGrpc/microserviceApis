@@ -19,6 +19,9 @@ echo "$(go env GOPATH)/bin"
 echo "$(go env GOPATH)/bin" >>"$GITHUB_PATH"
 echo "${GITHUB_PATH}"
 
+which protoc-gen-go
+which protoc-gen-go-grpc
+
 rm -rf golang
 mkdir golang
 cd golang || exit
