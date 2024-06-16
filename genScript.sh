@@ -18,10 +18,11 @@ echo "Compiler and dependency istalled successfully ...."
 export PATH="$PATH:$(go env GOPATH)/bin"
 echo "$PATH:$(go env GOPATH)/bin" >>$GITHUB_PATH
 
-rm -rf golang
-mkdir golang
+mkdir -p golang
 cd golang || exit
-mkdir "${SERVICE_NAME}"
+
+rmdir -rf "${SERVICE_NAME}"
+mkdir -p "${SERVICE_NAME}"
 cd ..
 
 #Generate proto code command

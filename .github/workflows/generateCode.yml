@@ -10,20 +10,29 @@ on:
 
 permissions: write-all
 
+concurrency:
+    group: generate-proto-stubs-${{ github.ref }}
+    cancel-in-progress: true
+
 jobs:
     generate:
         runs-on: ubuntu-latest
         strategy:
             matrix:
                 service: ["order", "payments", "shipping"]
+                # Optionally, you can add a `max-parallel` key to limit the number of jobs running in parallel
+                # max-parallel: 1
         steps:
             - name: Checkout repository
               uses: actions/checkout@v3
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
 
-            - name: Etract Release Version
+            - name: Extract Release Version
               run: echo "RELEASE_VERSION=v1.0.0" >> $GITHUB_ENV
+
+            - name: Pull Repo
+              run: git pull
 
             - name: Running Shell Script
               shell: bash
